@@ -15,4 +15,7 @@ class Product {
       @required this.price,
       @required this.imageUrl,
       this.isFavorite});
+  void toggleFavoriteStatus() {
+    isFavorite = !isFavorite!;
+  }
 }

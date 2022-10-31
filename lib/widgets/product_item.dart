@@ -5,12 +5,6 @@ import '../providers/product.dart';
 import '../view/product_details.dart';
 
 class ProductItem extends StatelessWidget {
-  // final String? id;
-  // final String? title;
-  // final String? imageUrl;
-
-  // const ProductItem(this.id, this.title, this.imageUrl, {super.key});
-
   @override
   Widget build(BuildContext context) {
     final product = Provider.of<Product>(context, listen: false);
@@ -20,16 +14,6 @@ class ProductItem extends StatelessWidget {
     return ClipRRect(
         borderRadius: BorderRadius.circular(10),
         child: GridTile(
-          child: GestureDetector(
-            onTap: () {
-              Navigator.of(context).pushNamed(ProductDetailsScreen.routeName,
-                  arguments: product.id);
-            },
-            child: Image.network(
-              product.imageUrl!,
-              fit: BoxFit.cover,
-            ),
-          ),
           footer: GridTileBar(
             backgroundColor: Colors.black87,
             leading: Consumer<Product>(
@@ -48,11 +32,21 @@ class ProductItem extends StatelessWidget {
               textAlign: TextAlign.center,
             ),
             trailing: IconButton(
-              icon: Icon(Icons.shopping_cart),
+              icon: const Icon(Icons.shopping_cart),
               onPressed: () {
                 cart.addItem(product.id!, product.price!, product.title!);
               },
               color: Theme.of(context).colorScheme.secondary,
+            ),
+          ),
+          child: GestureDetector(
+            onTap: () {
+              Navigator.of(context).pushNamed(ProductDetailsScreen.routeName,
+                  arguments: product.id);
+            },
+            child: Image.network(
+              product.imageUrl!,
+              fit: BoxFit.cover,
             ),
           ),
         ));

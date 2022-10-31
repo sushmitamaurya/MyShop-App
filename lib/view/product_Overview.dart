@@ -21,7 +21,7 @@ class _ProductOverviewState extends State<ProductOverview> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('MyShop'),
+        title: const Text('MyShop'),
         actions: [
           PopupMenuButton(
             onSelected: (FilterOption selectedValue) {
@@ -35,13 +35,13 @@ class _ProductOverviewState extends State<ProductOverview> {
             },
             icon: const Icon(Icons.more_vert),
             itemBuilder: (_) => [
-              PopupMenuItem(
-                child: Text("Only Favorite"),
+              const PopupMenuItem(
                 value: FilterOption.Favorites,
+                child: Text("Only Favorite"),
               ),
-              PopupMenuItem(
-                child: Text("Show all"),
+              const PopupMenuItem(
                 value: FilterOption.All,
+                child: Text("Show all"),
               )
             ],
           ),
@@ -49,7 +49,7 @@ class _ProductOverviewState extends State<ProductOverview> {
             builder: (_, cart, ch) =>
                 Badge(value: cart.items.toString(), child: ch),
             child: IconButton(
-              icon: Icon(
+              icon: const Icon(
                 Icons.shopping_cart,
               ),
               onPressed: () {

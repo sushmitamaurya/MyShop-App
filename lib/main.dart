@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import './view/order_screen.dart';
 import 'package:provider/provider.dart';
 import '../providers/cart.dart';
 import '../providers/orders.dart';
@@ -13,8 +14,6 @@ void main() {
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
-
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
@@ -39,7 +38,8 @@ class MyApp extends StatelessWidget {
         home: ProductOverview(),
         routes: {
           ProductDetailsScreen.routeName: (ctx) => ProductDetailsScreen(),
-          CartScreen.routeName: (ctx) => CartScreen()
+          CartScreen.routeName: (ctx) => CartScreen(),
+          OrdersScreen.routeName: (ctx) => OrdersScreen()
         },
       ),
     );

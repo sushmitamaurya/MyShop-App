@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import '../widgets/app_drawer.dart';
 import './cart_screen.dart';
 import '../providers/cart.dart';
 import '../widgets/products_grid.dart';
@@ -49,7 +50,7 @@ class _ProductOverviewState extends State<ProductOverview> {
             builder: (_, cart, ch) =>
                 Badge(value: cart.items.toString(), child: ch),
             child: IconButton(
-              icon: const Icon(
+              icon: Icon(
                 Icons.shopping_cart,
               ),
               onPressed: () {
@@ -59,6 +60,7 @@ class _ProductOverviewState extends State<ProductOverview> {
           )
         ],
       ),
+      drawer: appDrawer(),
       body: ProductGrid(_showOnlyFavorits),
     );
   }
